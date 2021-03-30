@@ -12,6 +12,7 @@
 (* ::Input:: *)
 (*(*parameters*)*)
 (*parvals={nNH->0.18`,nNS->0.13`,nNX->0.2`,j0HT->0.03`,j0ST->0.03`,\[Sigma]NH->0.9`,\[Sigma]CH->0.1`,\[Sigma]NS->0.9`,\[Sigma]CS->0.9`,jXm->0.13`,KX->1/1000000,jNm->0.035`,KN->1.5`*^-6,kCO2->10,jHGm->1,yCL->0.1`,yC->0.8`,astar->1.34`,kNPQ->112,kROS->80,jCPm->2.8`,jSGm->0.25`,b->5,X->0(*2/10000000*),\[CapitalNu]->1.5`*^-6,L->30,\[Lambda]->40,tmax->500};*)
+(*(*choose which fluxes are state variables*)*)
 (*fluxvars={jCP,jSG};*)
 (*(*initial values*)*)
 (*inivalues={jSG->0,jCP->jCPm,H->1,S->.3}/.parvals;*)
