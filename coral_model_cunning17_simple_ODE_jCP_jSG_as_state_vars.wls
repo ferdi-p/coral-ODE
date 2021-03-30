@@ -6,7 +6,7 @@
 
 
 (* ::Subtitle:: *)
-(*Numerics: ODE method, with 2 fluxes as state variables*)
+(*Numerics: ODE method, with 2 fluxes (Subscript[j, CP] and Subscript[j, SG]) as state variables*)
 
 
 (* ::Input:: *)
@@ -63,8 +63,6 @@
 (*cROS1=(jeL-jNPQ)/kROS;*)
 (*\[Rho]C=jCP-jSG yC^-1;*)
 (*\[Rho]N=Max[jN+jX nNX+rNH-jHG nNH,0];*)
-(*(*SU*)*)
-(*F[\[Rho]_][A_,B_]:=(A B (A+B) \[Rho])/(A^2 B+A B^2+A^2 \[Rho]+A B \[Rho]+B^2 \[Rho]);*)
 (*(*list of states (fluxes) to track*)*)
 (*(*format of elements in this list:*)*)
 (*(*{ variable name, formula (aim for numerical implementation), initial guess (for numerical implementation) } *)  *)
