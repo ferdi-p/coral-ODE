@@ -118,6 +118,9 @@
 (* ::Input:: *)
 (*(*Clear[findeqs];*)*)
 (*findeqs[{St_,Ht_}]:=findeqs[{St,Ht}]=NSolve[Flatten[{#[[1]]==#[[2]],#[[1]]>=0}&/@tsolveall/.{S->St,H->Ht}],tsolveall[[All,1]],Reals];*)
+(*sort[list_,var_]:=SortBy[list,(var/.#)&]*)
+(*(*findeqs[{.1,1}]*)*)
+(*sortfindeqs[SH_]:=sort[findeqs[SH],\[Rho]N];*)
 (*fill[list_]:=Flatten[list,{{2},{1}}];*)
 
 
@@ -126,7 +129,7 @@
 (*(Export["Simulations_Fig9_flux_eqs_nNX="<>StringReplace[ToString[nNX],"."->"dot"]<>".pdf",#];#)&@Column[{Row[{"\!\(\*SubscriptBox[\(n\), \(NX\)]\)=",nNX}],Multicolumn[*)
 (*Table[*)
 (*Show[{*)
-(*If[TrueQ[MemberQ[toplot[[4;;-1]],x]],ListPlot[fill[Table[{t,#}&/@(x/.findeqs[{S[t],H[t]}/.sol]/.{S->S[t],H->H[t]}/.sol),{t,0,tmax,\[CapitalDelta]t}]],AxesLabel->{"t"},PlotRange->Full,AxesOrigin->{0,0},PlotMarkers->({Graphics`PlotMarkers[][[1,1]],10}),PlotStyle->Table[ColorData[97][i],{i,2,10}]],Nothing],*)
+(*If[TrueQ[MemberQ[toplot[[4;;-1]],x]],ListPlot[fill[Table[{t,#}&/@(x/.sortfindeqs[{S[t],H[t]}/.sol]/.{S->S[t],H->H[t]}/.sol),{t,0,tmax,\[CapitalDelta]t}]],AxesLabel->{"t"},PlotRange->Full,AxesOrigin->{0,0},PlotMarkers->({Graphics`PlotMarkers[][[1,1]],10}),PlotStyle->Table[ColorData[97][i],{i,2,10}]],Nothing],*)
 (*Plot[Evaluate@Flatten@{x//.tsolveothers/.addtimetostates/.sol},{t,0,tmax},PlotRange->Full,PlotStyle->{Thickness[.015]}]},PlotRange->All,AxesLabel->{"t"},PlotLabel->(x/.names)]*)
 (*,{x,toplot}]*)
 (*]}]*)
@@ -139,7 +142,7 @@
 (*(Export["Simulations_Fig9_flux_eqs_zoom_nNX="<>StringReplace[ToString[nNX],"."->"dot"]<>".pdf",#];#)&@Column[{Row[{"\!\(\*SubscriptBox[\(n\), \(NX\)]\)=",nNX}],Multicolumn[*)
 (*Table[*)
 (*Show[{*)
-(*If[TrueQ[MemberQ[toplot[[4;;-1]],x]],ListPlot[fill[Table[{t,#}&/@(x/.findeqs[{S[t],H[t]}/.sol]/.{S->S[t],H->H[t]}/.sol),{t,tzoommin,tzoommax,\[CapitalDelta]tzoom}]],AxesLabel->{"t"},PlotRange->Full,PlotMarkers->({Graphics`PlotMarkers[][[1,1]],10}),PlotStyle->Table[ColorData[97][i],{i,2,10}]],Nothing],*)
+(*If[TrueQ[MemberQ[toplot[[4;;-1]],x]],ListPlot[fill[Table[{t,#}&/@(x/.sortfindeqs[{S[t],H[t]}/.sol]/.{S->S[t],H->H[t]}/.sol),{t,tzoommin,tzoommax,\[CapitalDelta]tzoom}]],AxesLabel->{"t"},PlotRange->Full,PlotMarkers->({Graphics`PlotMarkers[][[1,1]],10}),PlotStyle->Table[ColorData[97][i],{i,2,10}]],Nothing],*)
 (*Plot[Evaluate@Flatten@{x//.tsolveothers/.addtimetostates/.sol},{t,tzoommin,tzoommax},PlotRange->Full,PlotStyle->{Thickness[.015]}]},PlotRange->All,AxesLabel->{"t"},PlotLabel->(x/.names),TicksStyle->6,AxesOrigin->{tzoommin,0}]*)
 (*,{x,toplot}]*)
 (*]}]*)
@@ -149,6 +152,9 @@
 (*SoverHstep=.0025;*)
 (*SoverHmin=SoverHstep;*)
 (*SoverHmax=.7;*)
+
+
+(* ::Input:: *)
 (*(Export["flux-bifurcation_nNX="<>StringReplace[ToString[nNX],"."->"dot"]<>".pdf",#];#)&@Column[{Row[{"\!\(\*SubscriptBox[\(n\), \(NX\)]\)=",nNX}],Multicolumn[*)
-(*Table[ListPlot[fill[Table[{SoverH,#}&/@(x/.findeqs[{SoverH,1}]/.{S->SoverH,H->1}),{SoverH,SoverHmin,SoverHmax,SoverHstep}]],AxesLabel->{"S/H"},PlotRange->Full,PlotLabel->(x/.names),PlotMarkers->({Graphics`PlotMarkers[][[1,1]],6}),PlotStyle->Table[ColorData[97][i],{i,2,10}]]*)
+(*Table[ListPlot[fill[Table[{SoverH,#}&/@(x/.sortfindeqs[{SoverH,1}]/.{S->SoverH,H->1}),{SoverH,SoverHmin,SoverHmax,SoverHstep}]],AxesLabel->{"S/H"},PlotRange->Full,PlotLabel->(x/.names),PlotMarkers->({Graphics`PlotMarkers[][[1,1]],6}),PlotStyle->Table[ColorData[97][i],{i,2,10}]]*)
 (*,{x,toplot[[4;;-1]]}]]}]*)
